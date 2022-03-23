@@ -15,6 +15,9 @@ namespace FindMaximumUsingGenerics
 
             double floatMax = MaximumNumberCheck.MaxFloatNumber(119.12, 33.34, 45.65);
             Console.WriteLine(floatMax);
+
+            string stringMax = MaximumNumberCheck.MaxString("asad", "aakash", "adarsh");
+            Console.WriteLine(stringMax);
         }
     }
 }
