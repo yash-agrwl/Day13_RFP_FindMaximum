@@ -10,25 +10,14 @@ namespace FindMaximumUsingGenerics
 
             Console.WriteLine("The Maximum Numbers are: ");
 
-            int intMax = MaxValue<int>(11, 33, 55);
+            int intMax = new GenericMaximum<int>(11, 33, 55).MaxValue();
             Console.WriteLine(intMax);
 
-            double floatMax = MaxValue<double>(119.12, 33.34, 45.65);
+            double floatMax = new GenericMaximum<double>(119.12, 33.34, 45.65).MaxValue();
             Console.WriteLine(floatMax);
 
-            string stringMax = MaxValue<string>("asad", "aakash", "adarsh");
+            string stringMax = new GenericMaximum<string>("asad", "aakash", "adarsh").MaxValue();
             Console.WriteLine(stringMax);
-        }
-
-        public static T MaxValue<T>(T firstValue, T secondValue, T thirdValue) where T : IComparable
-        {
-            if (firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) >= 0)
-                return firstValue;
-
-            if (secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) >= 0)
-                return secondValue;
-
-            return thirdValue;
         }
     }
 }
