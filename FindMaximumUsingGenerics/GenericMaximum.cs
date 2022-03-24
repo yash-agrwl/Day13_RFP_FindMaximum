@@ -9,29 +9,28 @@ namespace FindMaximumUsingGenerics
     internal class GenericMaximum<T> where T : IComparable
     {
 
-        public T FirstValue, SecondValue, ThirdValue;
+        public T[] Values;
 
-        public GenericMaximum(T firstValue, T secondValue, T thirdValue)
+        public GenericMaximum(T[] value)
         {
-            this.FirstValue = firstValue;
-            this.SecondValue = secondValue;
-            this.ThirdValue = thirdValue;
+            this.Values = value;
         }
 
-        public static T MaxValue(T firstValue, T secondValue, T thirdValue)
+        public static T[] Sort(T[] value)
         {
-            if (firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) >= 0)
-                return firstValue;
+            Array.Sort(value);
+            return value;
+        }
 
-            if (secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) >= 0)
-                return secondValue;
-
-            return thirdValue;
+        public T MaxValue(T[] value)
+        {
+            var sortedArray = Sort(value);
+            return sortedArray[^1];
         }
 
         public T MaxValue()
         {
-            T max = GenericMaximum<T>.MaxValue(this.FirstValue, this.SecondValue, this.ThirdValue);
+            var max = MaxValue(this.Values);
             return max;
         }
     }
