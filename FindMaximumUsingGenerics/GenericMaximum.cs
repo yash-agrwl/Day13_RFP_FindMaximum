@@ -22,7 +22,7 @@ namespace FindMaximumUsingGenerics
             return value;
         }
 
-        public T MaxValue(T[] value)
+        public static T MaxValue(T[] value)
         {
             var sortedArray = Sort(value);
             return sortedArray[^1];
@@ -32,6 +32,12 @@ namespace FindMaximumUsingGenerics
         {
             var max = MaxValue(this.Values);
             return max;
+        }
+
+        public void PrintMaxValue()
+        {
+            var max = MaxValue(this.Values);
+            Console.WriteLine(max);
         }
     }
 }
